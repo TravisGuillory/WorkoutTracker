@@ -10,7 +10,7 @@ This application is built to help the user reach fitness goals more successfully
 
 * Track the distance travelled of cardio exercises
 
-**Technologies Used:**
+***Technologies Used:***
 
 * Node.js  - server side Javascript environment
 
