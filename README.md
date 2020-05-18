@@ -1,4 +1,4 @@
-**Workout Tracker**
+# Workout Tracker
 
 This application is built to help the user reach fitness goals more successfully and quickly by recording and tracking workout progress. This application assists the user through the following functionality:
 
@@ -10,7 +10,7 @@ This application is built to help the user reach fitness goals more successfully
 
 * Track the distance travelled of cardio exercises
 
-***Technologies Used:***
+## Technologies Used:
 
 * Node.js  - server side Javascript environment
 
