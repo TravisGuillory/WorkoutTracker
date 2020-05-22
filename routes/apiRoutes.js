@@ -39,7 +39,7 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // add exeercise to workout
-router.put("/api/workouts/workout", ({ params, body }, res) => {
+router.put("/api/workouts/workouts/:id", ({ params, body }, res) => {
   db.Workout.findOneAndUpdate(
     { _id: params.id },
     { $push: { excercises: body } },
