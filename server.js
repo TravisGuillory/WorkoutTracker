@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const app = express();
-const PORT = preocess.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Middleware
