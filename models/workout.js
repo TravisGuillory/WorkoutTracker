@@ -13,12 +13,12 @@ const workoutSchema = new Schema(
         type: {
           type: String,
           trim: true,
-          required: "Enter excercise type",
+          required: "Enter exercise type",
         },
         name: {
           type: String,
           trim: true,
-          required: "Enter the excercise name",
+          required: "Enter the exercise name",
         },
         duration: {
           type: Nimber,
@@ -26,15 +26,19 @@ const workoutSchema = new Schema(
         },
         weight: {
           type: Number,
+          required: "Enter the amount of weight used",
         },
         repetitions: {
           type: Number,
+          required: "Enter the number of repetitions",
         },
         sets: {
           type: Number,
+          required: "Enter the number of sets",
         },
         distance: {
           type: Number,
+          
         },
       },
     ],
@@ -42,7 +46,7 @@ const workoutSchema = new Schema(
   // Virtual properties when calculated data is needed
   {
     toJSON: {
-      virtual: true,
+      virtuals: true,
     },
   }
 );
