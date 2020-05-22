@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const apiRoute = require('./routes/apiRoutes');
+const htmlRoute = require('./routes/htmlRoutes');
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -11,20 +15,27 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
-app.use(express.static('public'));
 app.use(logger('dev'));
 
-
-// Routes
-app.use(require('./routes/apiRoutes.js'));
-app.use(require('./routes/htmlRoutes.js'));
-
+app.use(express.static('public'));
 
 const db = require('./models');
 
-
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true
 });
+
+
+// Routes
+app.use(apiRoute);
+app.use(htmlRoute);
+
+
+
+
+
+
 
 app.listen(PORT, () => console.log("listening on port: ", PORT));

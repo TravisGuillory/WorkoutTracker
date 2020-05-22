@@ -39,23 +39,23 @@ const workoutSchema = new Schema(
         distance: {
           type: Number,
           
-        },
-      },
-    ],
+        }
+      }
+    ]
   },
   // Virtual properties when calculated data is needed
   {
     toJSON: {
       virtuals: true,
-    },
+    }
   }
 );
 
 // add a Schema property that is dynamically created
 workoutSchema.virtual("totalDuration").get(function () {
-  // Sum the duration of exercices by array.reduce
+  // Sum the duration of all exercises with array.reduce method
   return this.exercises.reduce((total, exercise) => {
-    return total + exercises.duration;
+    return total + exercise.duration;
   }, 0);
 });
 

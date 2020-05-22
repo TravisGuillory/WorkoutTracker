@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Workout = require("../models.workout.js");
+const Workout = require("../models/workout.js");
 
 // Routes
 
@@ -27,23 +27,30 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 // Create a new empty workout routine. POST route
-router.post("/api/workouts", (req, res) => {
-  console.log("WOrkout created");
+router.post("/api/workouts", function (req, res) {
   Workout.create({})
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
+    .then(data => res.json(data))
+    .catch(err => {
+      console.log("err", err)
+      res.json(err)
     })
-    .catch((err) => {
-      res.json(err);
-    });
 });
 
-// add exeercise to workout
-router.put("/api/workouts/workouts/:id", ({ params, body }, res) => {
-  db.Workout.findOneAndUpdate(
-    { _id: params.id },
-    { $push: { excercises: body } },
-    { upsert: true, useFindandModify: false },
+// add exercise to workout
+router.put("/api/workouts/:id", ({
+  params,
+  body
+}, res) => {
+  Workout.findOneAndUpdate({
+      _id: params.id
+    }, {
+      $push: {
+        excercises: body
+      }
+    }, {
+      upsert: true,
+      useFindandModify: false
+    },
     (updatedWorkout) => {
       res.json(updatedWorkout);
     }
@@ -53,8 +60,8 @@ router.put("/api/workouts/workouts/:id", ({ params, body }, res) => {
 // DELETE a workout
 router.delete("/api/workouts/", (req, res) => {
   db.Workout.remove({
-    id: req.params.workout_id,
-  })
+      id: req.params.workout_id,
+    })
     .then((dbWorkout) => {
       res.json(dbWorkout);
       console.log("Workout Deleted");
@@ -63,3 +70,5 @@ router.delete("/api/workouts/", (req, res) => {
       res.json(err);
     });
 });
+
+module.exports = router;
