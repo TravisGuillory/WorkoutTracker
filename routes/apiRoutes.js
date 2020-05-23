@@ -42,11 +42,13 @@ router.put("/api/workouts/:id", ({
   params,
   body
 }, res) => {
-  Workout.findOneAndUpdate({
+  
+  console.log(body)
+  Workout.findByIdAndUpdate({
       _id: params.id
     }, {
       $push: {
-        excercises: body
+        exercises: body
       }
     }, {
       upsert: true,
