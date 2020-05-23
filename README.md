@@ -23,3 +23,6 @@ This application is built to help the user reach fitness goals more successfully
 GitHub Repository:  [https://github.com/TravisGuillory/WorkoutTracker](https://github.com/TravisGuillory/WorkoutTracker)
 
 Deployed application: [ https://fast-forest-33774.herokuapp.com/]
+
+![small](assets/home.png) <br>
+![small](assets/dashboard.png) 
