@@ -24,5 +24,5 @@ GitHub Repository:  [https://github.com/TravisGuillory/WorkoutTracker](https://g
 
 Deployed application: [ https://fast-forest-33774.herokuapp.com/]
 
-![small](assets/home.png) <br>
-![small](assets/dashboard.png) 
+![small](/assets/home.png) <br>
+![small](/assets/dashboard.png) 
