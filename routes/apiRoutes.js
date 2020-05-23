@@ -6,13 +6,14 @@ const Workout = require("../models/workout.js");
 // GET route to get all saved workouts
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
-    .then((dbWorkouts) => {
+    .then(dbWorkouts => {
       res.json(dbWorkouts);
     })
-    .catch((err) => {
+    .catch(err => {
       res.json(err);
     });
 });
+
 
 // GET range of workouts
 router.get("/api/workouts/range", (req, res) => {
