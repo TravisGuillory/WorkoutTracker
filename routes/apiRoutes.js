@@ -37,7 +37,7 @@ router.post("/api/workouts", function (req, res) {
     })
 });
 
-// add exercise to workout
+// add exercise to a saved workout
 router.put("/api/workouts/:id", ({
   params,
   body
